@@ -22,4 +22,24 @@ class Custom extends CI_Controller {
 	{
 		$this->load->view('custom_view');
 	}
+
+	public function simpan()
+	{
+		$nim = $this->input->post('nim');
+		$nama = $this->input->post('nama');
+		$prodi = $this->input->post('prodi');
+		$smt = $this->input->post('smt');
+		$kelas = $this->input->post('kelas');
+		$email = $this->input->post('email');
+		$phone = $this->input->post('phone');
+		$minat = $this->input->post('minat');
+		$this->db->query("insert into tbl_mahasiswa values('$nim','$nama','$prodi','$smt','$kelas','$email','$phone','$minat')");
+		redirect('', 'refresh');
+	}
+
+	public function tampil()
+	{
+		$data['data'] = $this->db->query('select * from tbl_mahasiswa');
+		$this->load->view('tampil', $data);
+	}
 }
