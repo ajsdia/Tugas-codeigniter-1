@@ -46,7 +46,7 @@ class User extends CI_Controller
 
     public function update()
 	{
-		$post = $this->input->post('id');
+		$post = $this->input->post();
         $this->user_m->update($post);
 
         $this->session->set_flashdata('pesan', 'Data user berhasil diupdate.');

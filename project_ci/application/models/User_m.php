@@ -32,7 +32,7 @@ class User_m extends CI_Model
         return $query;
 	}
 
-    public function save()
+    public function save($post)
 	{
 		$data = [
             'username' => $post['username'],
